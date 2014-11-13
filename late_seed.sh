@@ -2,7 +2,8 @@
 
 #### auto login
 user=sasaki
-dhcphost=172.27.82.33
+###dhcphost=172.27.82.52
+dhcphost=raw.githubusercontent.com/kotaro-dev/ubuntu-installer/critical
 
 echo change auto login to user : ${user} - start
 
