@@ -2,7 +2,9 @@
 
 #### auto login
 user=sasaki
-dhcphost=172.27.82.33
+###dhcphost=172.27.82.52
+dhcphost=raw.github.com/kotaro-dev/ubuntu-installer/
+branch=master
 
 echo change auto login to user : ${user} - start
 
@@ -15,7 +17,7 @@ echo change auto login to user : ${user} - end
 echo samba configure shared directory - start
 
 sudo mv /etc/samba/smb.conf /etc/samba/smb.conf.org
-sudo wget http://${dhcphost}/smb.conf -O /etc/samba/smb.conf
+sudo wget http://${dhcphost}${branch}/smb.conf -O /etc/samba/smb.conf
 
 #sudo touch /etc/samba/smb.conf
 #sudo echo [global]>>/etc/samba/smb.conf
@@ -46,9 +48,9 @@ echo unattended-upgrades configure - start
 sudo apt-get install unattended-upgrades -y
 
 sudo mv /etc/apt/apt.conf.d/50unattended-upgrades /etc/apt/apt.conf.d/50unattended-upgrades.org
-sudo wget http://${dhcphost}/50unattended-upgrades -O /etc/apt/apt.conf.d/50unattended-upgrades
+sudo wget http://${dhcphost}${branch}/50unattended-upgrades -O /etc/apt/apt.conf.d/50unattended-upgrades
 
 sudo mv /etc/apt/apt.conf.d/10periodic /etc/apt/apt.conf.d/10periodic.org
-sudo wget http://${dhcphost}/10periodic -O /etc/apt/apt.conf.d/10periodic
+sudo wget http://${dhcphost}${branch}/10periodic -O /etc/apt/apt.conf.d/10periodic
 
 echo unattended-upgrades configure - end
