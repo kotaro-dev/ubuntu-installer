@@ -53,3 +53,18 @@ sudo mv /etc/apt/apt.conf.d/10periodic /etc/apt/apt.conf.d/10periodic.org
 sudo wget http://${dhcphost}/10periodic -O /etc/apt/apt.conf.d/10periodic
 
 echo unattended-upgrades configure - end
+
+#### for nat+hostonly nic - add eth1 addr
+
+sudo wget http://${dhcphost}/add_eth1.sh -O /tmp/add_eth1.sh
+sudo chmod 744 /tmp/add_eth1.sh
+
+sudo /tmp/add_eth1.sh
+
+#### reject and reboot
+
+sudo eject
+
+sudo reboot
+
+
